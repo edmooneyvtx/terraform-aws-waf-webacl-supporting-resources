@@ -338,7 +338,7 @@ resource "aws_kinesis_firehose_delivery_stream" "waf" {
       }
     }
   }
-
+/*
   tags = {
     Name          = "aws-waf-logs-${lower(var.service_name)}-WebACL-${random_id.this.hex}"
     Description   = "Firehose to deliver stream about traffic information from ${lower(var.service_name)}-WebACL to S3."
@@ -347,4 +347,5 @@ resource "aws_kinesis_firehose_delivery_stream" "waf" {
     Environment   = "${lower(var.environment)}"
     ManagedBy     = "terraform"
   }
+  */
 }
