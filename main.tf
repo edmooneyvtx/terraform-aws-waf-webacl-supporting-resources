@@ -41,6 +41,8 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
       }
     }
   }
+  
+  depends_on = [aws_s3_bucket.s3_logging_bucket]
 
 
   versioning {
