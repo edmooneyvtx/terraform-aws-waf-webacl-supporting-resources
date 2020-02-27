@@ -10,8 +10,6 @@ resource "random_id" "this" {
 }
 
 
-
-
 provider "aws" {
   region = "us-east-1"
   alias  = "regional"
@@ -22,9 +20,9 @@ provider "aws" {
 resource "aws_s3_bucket" "webacl_traffic_information" {
   bucket = "${lower(var.service_name)}-webacl-${data.aws_region.this.name}-${data.aws_caller_identity.this.account_id}-${random_id.this.hex}"
   region = "${data.aws_region.this.name}"
-  provider = aws.regional
+  # provider = aws.regional
 
-  acl    = "private"
+  acl    = "private"ds
 
   logging {
     target_bucket = "${lower(var.s3_logging_bucket)}"
