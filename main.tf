@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
   region = "${data.aws_region.this.name}"
   # provider = aws.regional
 
-  acl    = "private"ds
+  acl    = "private"
 
   logging {
     target_bucket = "${lower(var.s3_logging_bucket)}"
