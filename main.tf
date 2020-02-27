@@ -28,11 +28,11 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
     }
   }
 
-/*
+
   versioning {
     enabled = "true"
   }
-  */
+  
 /*
   tags {
     Name          = "${lower(var.service_name)}-webacl-${data.aws_region.this.name}-${data.aws_caller_identity.this.account_id}-${random_id.this.hex}"
