@@ -195,6 +195,7 @@ resource "aws_iam_role" "firehose" {
   force_detach_policies = "false"
   max_session_duration  = "43200"
 
+/*
   tags {
     Name          = "ServiceRoleForFirehose_${lower(var.service_name)}-WebACL-${random_id.this.hex}"
     Description   = "Service Role for ${lower(var.service_name)}-WebACL Firehose"
@@ -203,6 +204,7 @@ resource "aws_iam_role" "firehose" {
     Environment   = "${lower(var.environment)}"
     ManagedBy     = "terraform"
   }
+  */
 }
 
 # Policy document that will be attached to the S3 Bucket, to make the bucket accessible by the Firehose.
