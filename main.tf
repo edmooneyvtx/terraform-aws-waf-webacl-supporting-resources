@@ -84,6 +84,7 @@ resource "aws_glue_catalog_table" "table" {
     },
   ]
 
+/*
   storage_descriptor {
     location      = "s3://${aws_s3_bucket.webacl_traffic_information.id}/logs"
     input_format  = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"
@@ -145,6 +146,8 @@ resource "aws_glue_catalog_table" "table" {
       },
     ]
   }
+  */
+
 }
 
 # This log group is needed by Amazon Kinesis Firehose for storing delivery error information.
