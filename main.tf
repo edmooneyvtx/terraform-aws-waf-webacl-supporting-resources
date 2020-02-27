@@ -28,10 +28,12 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
     }
   }
 
+/*
   versioning {
     enabled = "true"
   }
-
+  */
+/*
   tags {
     Name          = "${lower(var.service_name)}-webacl-${data.aws_region.this.name}-${data.aws_caller_identity.this.account_id}-${random_id.this.hex}"
     Description   = "Bucket for storing ${lower(var.service_name)} WebACL traffic information"
@@ -41,6 +43,7 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
     ManagedBy     = "terraform"
   }
 }
+*/
 
 # AWS Glue Catalog Database. This resource is needed by Amazon Kinesis Firehose as data format conversion configuration, for transforming from JSON to Parquet.
 resource "aws_glue_catalog_database" "database" {
@@ -209,7 +212,6 @@ data "aws_iam_policy_document" "allow_s3_actions" {
 
     principals = {
       type = "AWS"
-
       identifiers = [
         "${aws_iam_role.firehose.arn}",
       ]
