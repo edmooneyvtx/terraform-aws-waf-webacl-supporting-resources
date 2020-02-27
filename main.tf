@@ -175,7 +175,7 @@ data "aws_iam_policy_document" "firehose_assume_role_policy" {
       "sts:AssumeRole",
     ]
 
-    principals = {
+    principals {
       type = "Service"
 
       identifiers = [
@@ -210,7 +210,7 @@ data "aws_iam_policy_document" "allow_s3_actions" {
   statement {
     effect = "Allow"
 
-    principals = {
+    principals {
       type = "AWS"
       identifiers = [
         "${aws_iam_role.firehose.arn}",
