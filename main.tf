@@ -16,6 +16,11 @@ provider "aws" {
 }
 
 
+resource "aws_s3_bucket" "s3_logging_bucket" {
+    bucket = "${lower(var.s3_logging_bucket)}"
+    acl = "private"
+}
+
 # S3 Bucket to store WebACL Traffic Logs. This resource is needed by Amazon Kinesis Firehose as data delivery output target.
 resource "aws_s3_bucket" "webacl_traffic_information" {
   bucket = "${lower(var.service_name)}-webacl-${data.aws_region.this.name}-${data.aws_caller_identity.this.account_id}-${random_id.this.hex}"
