@@ -42,8 +42,8 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
     Environment   = "${lower(var.environment)}"
     ManagedBy     = "terraform"
   }
+  */
 }
-*/
 
 # AWS Glue Catalog Database. This resource is needed by Amazon Kinesis Firehose as data format conversion configuration, for transforming from JSON to Parquet.
 resource "aws_glue_catalog_database" "database" {
