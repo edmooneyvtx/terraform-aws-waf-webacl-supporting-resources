@@ -84,7 +84,7 @@ resource "aws_glue_catalog_table" "table" {
     },
   ]
 
-/*
+
   storage_descriptor {
     location      = "s3://${aws_s3_bucket.webacl_traffic_information.id}/logs"
     input_format  = "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"
@@ -95,58 +95,57 @@ resource "aws_glue_catalog_table" "table" {
       serialization_library = "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"
     }
 
-    columns = [
-      {
+      columns {
         name = "timestamp"
         type = "timestamp"
-      },
-      {
+      }
+      columns {
         name = "formatversion"
         type = "int"
-      },
-      {
+      }
+      columns {
         name = "webaclid"
         type = "string"
-      },
-      {
+      }
+      columns {
         name = "terminatingruleid"
         type = "string"
-      },
-      {
+      }
+      columns {
         name = "terminatingruletype"
         type = "string"
-      },
-      {
+      }
+      columns {
         name = "action"
         type = "string"
-      },
-      {
+      }
+      columns {
         name = "httpsourcename"
         type = "string"
-      },
-      {
+      }
+      columns {
         name = "httpsourceid"
         type = "string"
-      },
-      {
+      }
+      columns {
         name = "rulegrouplist"
         type = "array<struct<ruleGroupId:string,terminatingRule:string,nonTerminatingMatchingRules:array<struct<action:string,ruleId:string>>,excludedRules:array<struct<exclusionType:string,ruleId:string>>>>"
-      },
-      {
+      }
+      columns {
         name = "ratebasedrulelist"
         type = "array<struct<rateBasedRuleId:string,limitKey:string,maxRateAllowed:int>>"
-      },
-      {
+      }
+      columns {
         name = "nonterminatingmatchingrules"
         type = "array<struct<action:string,ruleId:string>>"
-      },
-      {
+      }
+      columns {
         name = "httprequest"
         type = "struct<clientIp:string,country:string,headers:array<struct<name:string,value:string>>,uri:string,args:string,httpVersion:string,httpMethod:string,requestId:string>"
-      },
-    ]
+      }
+    
   }
-  */
+  
 
 }
 
