@@ -65,24 +65,22 @@ resource "aws_glue_catalog_table" "table" {
     classification = "Parquet"
   }
 
-  partition_keys = [
-    {
+    partition_keys {
       name = "year"
       type = "int"
-    },
-    {
+    }
+    partition_keys {
       name = "month"
       type = "int"
-    },
-    {
+    }
+    partition_keys {
       name = "day"
       type = "int"
-    },
-    {
+    }
+    partition_keys {
       name = "hour"
       type = "int"
-    },
-  ]
+    }
 
 
   storage_descriptor {
